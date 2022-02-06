@@ -1,0 +1,4 @@
+{
+	"signInAudience": "AzureADMyOrg",
+	"signInAudience": "AzureADMultipleOrgs",
+}

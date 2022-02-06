@@ -1,0 +1,14 @@
+	"preAuthorizedApplications": [
+		{
+			"appId": "0f86262f-2a3a-4fd5-9e66-cf68c692e440",
+			"permissionIds": [
+				"be19a451-c796-405b-b6e8-9c32d3b53bf6"
+			]
+		},
+		{
+			"appId": "64872e8b-a211-4773-9034-73716950ac93",
+			"permissionIds": [
+				"be19a451-c796-405b-b6e8-9c32d3b53bf6"
+			]
+		}
+	],

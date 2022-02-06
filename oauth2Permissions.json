@@ -1,0 +1,22 @@
+	"oauth2Permissions": [
+		{
+			"adminConsentDescription": "Admin consent description\n",
+			"adminConsentDisplayName": "Admin consent display name",
+			"id": "be19a451-c796-405b-b6e8-9c32d3b53bf6",
+			"isEnabled": true,
+			"type": "Admin",
+			"userConsentDescription": null,
+			"userConsentDisplayName": null,
+			"value": "default"
+		},
+		{
+			"adminConsentDescription": "read",
+			"adminConsentDisplayName": "read",
+			"id": "33530a88-ae53-4de1-8ab2-fcfdad933012",
+			"isEnabled": true,
+			"type": "Admin",
+			"userConsentDescription": null,
+			"userConsentDisplayName": null,
+			"value": "read"
+		}
+	],
