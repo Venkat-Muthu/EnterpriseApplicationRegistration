@@ -72,3 +72,30 @@ az rest --method POST \
 		
 az ad app update --id fe4e3281-7256-473e-8cd1-9b8f9345c565 --required-resource-accesses '[{"resourceAppId": "00000003-0000-0000-c000-000000000000","resourceAccess": [{ "id": "df021288-bdef-4463-88db-98f22de89214", "type": "Role" },{"id": "5b567255-7703-4780-807c-7be8301ae99b","type": "Role"}]}]'
 
+# # 
+# # bash TO Add Owner under Application Registration
+# appId=93dde3da-9fca-47dd-aee2-409b402ffed3
+# appObjectId=$(az ad app show --id $appId --query objectId -o tsv)
+# # Get the object Id for the current user
+# ownerObjectId=$(az ad signed-in-user show --query objectId -o tsv)
+# # This applies to both user and service principal as owners
+# az rest -m POST -u https://graph.microsoft.com/beta/applications/$appObjectId/owners/\$ref --headers Content-Type=application/json -b "{\"@odata.id\": \"https://graph.microsoft.com/beta/directoryObjects/$ownerObjectId\"}"
+# # To add a user as an owner
+# az rest -m POST -u https://graph.microsoft.com/beta/applications/$appObjectId/owners/\$ref --headers Content-Type=application/json -b "{\"@odata.id\": \"https://graph.microsoft.com/beta/users/$ownerObjectId\"}"
+# # To add a service principal as an owner
+# az rest -m POST -u https://graph.microsoft.com/beta/applications/$appObjectId/owners/\$ref --headers Content-Type=application/json -b "{\"@odata.id\": \"https://graph.microsoft.com/beta/servicePrincipals/$ownerObjectId\"}"
+
+# # bash To Add Owner under Enterprise Application
+# appId=93dde3da-9fca-47dd-aee2-409b402ffed3
+# spObjectId=$(az ad sp show --id $appId --query objectId --output tsv)
+# # Get the object Id for the current user
+# ownerObjectId=$(az ad signed-in-user show --query objectId -o tsv)
+# # This applies to both user and service principal as owners
+# az rest -m POST -u https://graph.microsoft.com/beta/servicePrincipals/$spObjectId/owners/\$ref --headers Content-Type=application/json -b "{\"@odata.id\": \"https://graph.microsoft.com/beta/directoryObjects/$ownerObjectId\"}"
+# # To add a user as an owner
+# az rest -m POST -u https://graph.microsoft.com/beta/servicePrincipals/$spObjectId/owners/\$ref --headers Content-Type=application/json -b "{\"@odata.id\": \"https://graph.microsoft.com/beta/users/$ownerObjectId\"}"
+# # To add a service principal as an owner
+# az rest -m POST -u https://graph.microsoft.com/beta/servicePrincipals/$spObjectId/owners/\$ref --headers Content-Type=application/json -b "{\"@odata.id\": \"https://graph.microsoft.com/beta/servicePrincipals/$ownerObjectId\"}"
+
+
+# https://github.com/Azure/azure-cli/issues/9250
